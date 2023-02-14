@@ -39,10 +39,10 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
-    "build:cjs": "BABEL_ENV=cjs babel src --root-mode upward --extensions '.js,.ts,.tsx' --out-dir dist/cjs --ignore '**/__tests__/**/*','**/__mocks__/**/*' --quiet && ../../scripts/prepare-cjs.sh",
-    "build:es": "BABEL_ENV=es babel src --root-mode upward --extensions '.js,.ts,.tsx' --out-dir dist/es --ignore '**/__tests__/**/*','**/__mocks__/**/*' --quiet",
-    "build:types": "tsc -p ./tsconfig.declaration.json --outDir ./dist/es",
+    "build": "node init && yarn build:cjs && yarn build:es && yarn build:types",
+    "build:cjs": "node init && BABEL_ENV=cjs babel src --root-mode upward --extensions '.js,.ts,.tsx' --out-dir dist/cjs --ignore '**/__tests__/**/*','**/__mocks__/**/*' --quiet && ../../scripts/prepare-cjs.sh",
+    "build:es": "node init && BABEL_ENV=es babel src --root-mode upward --extensions '.js,.ts,.tsx' --out-dir dist/es --ignore '**/__tests__/**/*','**/__mocks__/**/*' --quiet",
+    "build:types": "node init && tsc -p ./tsconfig.declaration.json --outDir ./dist/es",
     "test:exports": "node ./__tests__/module/is-es-module.mjs && node ./__tests__/module/is-cjs-module.cjs",
     "test:start-server": "yarn workspace example-react-instantsearch-hooks-next-routing-example build && yarn workspace example-react-instantsearch-hooks-next-routing-example start",
     "test:e2e": "start-server-and-test test:start-server 3000 'wdio run ./wdio.conf.cjs'"

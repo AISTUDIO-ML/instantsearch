@@ -4,7 +4,7 @@
     "name": "Algolia, Inc.",
     "url": "https://www.algolia.com"
   },
-  "description": "👀 Lightning-fast Algolia search for Vue apps",
+  "description": "\ud83d\udc40 Lightning-fast Algolia search for Vue apps",
   "keywords": [
     "vue",
     "algolia",
@@ -28,7 +28,7 @@
   "repository": "https://github.com/algolia/instantsearch.js",
   "scripts": {
     "prebuild": "rm -rf vue2 vue3",
-    "build": "rollup -c",
+    "build": "node init && rollup -c",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o ../../website/stories/vue",
     "test:exports": "node ./test/module/vue2/is-es-module.mjs && node ./test/module/vue2/is-cjs-module.cjs",

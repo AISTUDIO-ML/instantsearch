@@ -10,11 +10,11 @@
   "license": "MIT",
   "author": "Algolia <support@algolia.com>",
   "scripts": {
-    "build": "astro build",
+    "build": "node init && astro build",
     "check": "astro check && tsc",
-    "dev": "astro dev",
+    "dev": "node init && astro dev",
     "preview": "astro preview",
-    "start": "astro dev",
+    "start": "node init && astro dev",
     "prepare": "rm -rf public && mkdir public && cp -r ../node_modules/instantsearch.css/themes public/themes"
   },
   "devDependencies": {
